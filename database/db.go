@@ -2,17 +2,18 @@ package database
 
 import (
 	"content_portal/models"
+	"fmt"
 
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 const (
-	HOST_POSTGRES = "34.101.130.27"
-	PORT_POSTGRES = 3306
+	HOST_POSTGRES = "34.128.93.96"
+	PORT_POSTGRES = 5432
 	DB_POSTGRES   = "halocat_db"
-	USER_POSTGRES = "root"
-	PASS_POSTGRES = "root123"
+	USER_POSTGRES = "postgres"
+	PASS_POSTGRES = "Noerhick_02"
 )
 
 var (
@@ -22,9 +23,11 @@ var (
 
 func ConnectDB() *gorm.DB {
 
-	dsn := "root:root123@tcp(34.101.130.27:3306)/halocat_db?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+		HOST_POSTGRES, PORT_POSTGRES, USER_POSTGRES, PASS_POSTGRES, DB_POSTGRES,
+	)
 
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
