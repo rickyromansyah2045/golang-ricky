@@ -8,11 +8,11 @@ import (
 )
 
 const (
-	HOST_POSTGRES = "localhost"
+	HOST_POSTGRES = "34.101.130.27"
 	PORT_POSTGRES = 3306
-	DB_POSTGRES   = "cms_contents"
+	DB_POSTGRES   = "halocat_db"
 	USER_POSTGRES = "root"
-	PASS_POSTGRES = ""
+	PASS_POSTGRES = "root123"
 )
 
 var (
