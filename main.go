@@ -1,11 +1,12 @@
 package main
 
 import (
-	"content_portal/routes"
+	"fmt"
 )
 
 func main() {
-	r := routes.StartApp()
+	// r := routes.StartApp()
 
-	r.Run(":8000")
+	// r.Run(":8000")
+	fmt.Println("Hello World")
 }
